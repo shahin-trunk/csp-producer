@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CspProducerApplication {
+public class CspProducer {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CspProducerApplication.class, args);
+		SpringApplication.run(CspProducer.class, args);
 	}
 
 }
