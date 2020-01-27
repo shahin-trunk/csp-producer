@@ -12,3 +12,23 @@ services:
       KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.2
+    ports:
+      - "9200:9200"
+    environment:
+      discovery.type: 'single-node'
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+  minio:
+    image: minio/minio
+    ports:
+      - "9000:9000"
+    volumes:
+      - /data/minio:/data
+    environment:
+      MINIO_ACCESS_KEY: trunk
+      MINIO_SECRET_KEY: P@ssw0rd
+    command: server /data

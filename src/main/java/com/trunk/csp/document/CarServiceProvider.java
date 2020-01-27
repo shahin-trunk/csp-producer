@@ -8,6 +8,6 @@ import lombok.ToString;
 @Builder
 @ToString
 public class CarServiceProvider {
-    private String message;
-    private Integer identifier;
+    private String name;
+    private Integer locationId;
 }

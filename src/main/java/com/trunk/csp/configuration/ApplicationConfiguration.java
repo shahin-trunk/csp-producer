@@ -1,6 +1,7 @@
 package com.trunk.csp.configuration;
 
 import com.trunk.csp.document.CarServiceProvider;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -18,12 +19,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
+@Slf4j
 public class ApplicationConfiguration {
 
     @Autowired
     private KafkaProperties kafkaProperties;
 
-    @Value("${tpd.topic-name}")
+    @Value("${csp.topic-name}")
     private String topicName;
 
     @Bean
@@ -50,4 +52,5 @@ public class ApplicationConfiguration {
     public NewTopic adviceTopic() {
         return new NewTopic(topicName, 3, (short) 1);
     }
+
 }

@@ -1,9 +1,18 @@
+server:
+  port: 7007
+  servlet:
+    context-path: /csp-producer
+
 spring:
+  application:
+    name: csp-producer
   kafka:
-    consumer:
-      group-id: tpd-loggers
-      auto-offset-reset: earliest
     bootstrap-servers: localhost:9092
-tpd:
-  topic-name: advice-topic
-  messages-per-request: 10
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+csp:
+  topic-name: csp-topic
